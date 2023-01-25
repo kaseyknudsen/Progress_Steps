@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
 
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #e0e0e0;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -30,8 +35,8 @@ body {
 
 .progress-container::before {
   /* you have to use content with an empty string when using ::before or ::after*/
-  content: '';
-  background-color: #e0e0e0;
+  content: "";
+  background-color: var(--line-border-empty);
   position: absolute;
   top: 50%;
   left: 0;
@@ -43,7 +48,7 @@ body {
 }
 
 .progress {
-  background-color: #3498db;
+  background-color: var(--line-border-fill);
   position: absolute;
   top: 50%;
   left: 0;
@@ -52,11 +57,11 @@ body {
   height: 4px;
   width: 0%;
   z-index: -1;
-  transition: .04s ease;
+  transition: 0.04s ease;
 }
 
 .circle {
-  background-color: #fff;
+  background-color: var(--line-border-empty);
   color: #999;
   border-radius: 50%;
   height: 30px;
@@ -66,8 +71,33 @@ body {
   align-items: center;
   justify-content: center;
   border: 3px solid #e0e0e0;
-  transition: .4s ease;
+  transition: 0.4s ease;
 }
 .circle.active {
-  border-color: #3498db;
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  background-color: var(--line-border-fill);
+  color: white;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px 30px;
+  margin: 5px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
 }
