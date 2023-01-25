@@ -27,3 +27,47 @@ body {
   max-width: 100%;
   width: 350px;
 }
+
+.progress-container::before {
+  /* you have to use content with an empty string when using ::before or ::after*/
+  content: '';
+  background-color: #e0e0e0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  /* this centers the line in the middle */
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+
+.progress {
+  background-color: #3498db;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  /* this centers the line in the middle */
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: .04s ease;
+}
+
+.circle {
+  background-color: #fff;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  /* lower three align the numbers in the middle of the circles */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #e0e0e0;
+  transition: .4s ease;
+}
+.circle.active {
+  border-color: #3498db;
+}
